@@ -58,11 +58,6 @@ bool SubShoot::IsFinished()
     {
         case 0:
         {
-            if (!m_controlData.smartIntakeInput.laser)
-            {
-                m_timer.Start();
-                m_isFinished_state++;
-            }
 
             break;
         }

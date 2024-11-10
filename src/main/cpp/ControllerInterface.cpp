@@ -26,9 +26,6 @@ void ControllerInterface::UpdateIntakeInput(RobotControlData &controlData)
         controlData.intakeInput.runIntakeIn = false;
     }
 
-    controlData.smartIntakeInput.smartOutTake = m_copilot.GetRightBumper();
-    controlData.smartIntakeInput.smartIntake = m_copilot.GetLeftBumper();
-    // controlData.intakeInput.runIntakeOut = m_copilot.GetRightTriggerAxis() >= 0.2;
 };
 
 void ControllerInterface::UpdateLauncherInput(RobotControlData &controlData)
@@ -37,10 +34,6 @@ void ControllerInterface::UpdateLauncherInput(RobotControlData &controlData)
     controlData.launcherInput.goToSubPos = m_copilot.GetYButton();
     controlData.launcherInput.runIndexerBackward = m_copilot.GetLeftTriggerAxis() >= 0.2;
     controlData.launcherInput.goToHoardePos = m_copilot.GetBButton();
-    // controlData.launcherInput.runIndexerForward = m_copilot.GetRightTriggerAxis() >= 0.2;
-    //controlData.launcherInput.runIndexerForward = m_copilot.GetXButton();
-    //controlData.launcherInput.runIndexerBackward = m_copilot.GetBButton();
-    //controlData.launcherInput.useVisionControl = m_copilot.GetYButton();
 };
 
 void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
@@ -69,6 +62,5 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 };
 
 void ControllerInterface::UpdateVisionInput(RobotControlData &controlData) {
-
-    controlData.autoAimInput.autoAim = m_copilot.GetXButton();
+    // FIXME 
 }

@@ -3,16 +3,10 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "Robot.h"
-#include "VisionConsumer.h"
 #include <fmt/core.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::updateDashBoardValues() {
-  
-  frc::SmartDashboard::PutBoolean("AutoAim", false);
-  frc::SmartDashboard::PutNumber("RobotCurAngle", _robot_control_data.autoAimInput.robotCurAngle);
-  frc::SmartDashboard::PutNumber("RobotSetAngle", _robot_control_data.autoAimInput.robotSetAngle);
-  frc::SmartDashboard::PutNumber("RobotRotSpeed", _robot_control_data.autoAimOutput.robotRotSpeed);
   frc::SmartDashboard::PutNumber("vision_flywheel_speed", _robot_control_data.launcherInput.visionSpeedSetpoint);
   frc::SmartDashboard::PutNumber("vision_launcher_angle", _robot_control_data.launcherInput.visionAngleSetpoint);
   frc::SmartDashboard::PutNumber("Measured Flywheel Speed", _robot_control_data.launcherOutput.flywheelSpeed);
@@ -23,8 +17,6 @@ void Robot::RobotInit() {
   // m_chooser.SetDefaultOption(kAutoNameDefault, kAutoNameDefault);
   // m_chooser.AddOption(kAutoNameCustom, kAutoNameCustom);
   // frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
-
-  // vision = VisionConsumer();
 
   m_autos_directory = frc::filesystem::GetDeployDirectory();
   m_autos_directory = m_autos_directory / "pathplanner" / "autos";
@@ -49,8 +41,6 @@ void Robot::RobotInit() {
 
   // Register Named Commands
   pathplanner::NamedCommands::registerCommand("SubShoot", std::make_shared<SubShoot>(_robot_control_data));
-  pathplanner::NamedCommands::registerCommand("SmartIntakeCommand", std::make_shared<SmartIntakeCommand>(_robot_control_data));
-  pathplanner::NamedCommands::registerCommand("VisionShoot", std::make_shared<VisionShoot>(_robot_control_data));
   pathplanner::NamedCommands::registerCommand("IntakeDown", std::make_shared<IntakeDown>(_robot_control_data));
   
   SwerveInit();
@@ -154,7 +144,6 @@ void Robot::TeleopInit() {
 
   _intake_manager.ResetIntake();
   _launcher_manager.ResetLauncher();
-  _smart_intake.ResetSmartIntake();
   
 }
 
@@ -164,36 +153,12 @@ void Robot::TeleopPeriodic() {
   if (!IsAutonomous())
   {
     _controller_interface.UpdateRobotControlData(_robot_control_data);
-
-    if (!_robot_control_data.autoAimInput.autoAim)
-    {
       _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
-    }
   }
 
-  _robot_control_data.autoAimInput.robotCurAngle = _gyro.GetHeading().Degrees().to<double>();
-
-/*  
-  if (_robot_control_data.swerveInput.resetGyroZeroHeading)
-  {
-    _gyro.SetZeroHeading(double(_gyro.GetRawHeading().Degrees()));
-  }
-*/
-
-  m_autoAim.HandleInput(_robot_control_data);
-
-  if (_robot_control_data.autoAimInput.autoAim)
-  {
-    _swerve.Drive(units::feet_per_second_t{0.0}, units::feet_per_second_t{0.0}, units::degrees_per_second_t{_robot_control_data.autoAimOutput.robotRotSpeed});
-  }
-  
-  _smart_intake.HandleInput(_robot_control_data);
   _intake_manager.HandleInput(_robot_control_data.intakeInput, _robot_control_data.intakeOutput);
   _launcher_manager.HandleInput(_robot_control_data.launcherInput, _robot_control_data.launcherOutput, _robot_control_data.intakeInput, _robot_control_data.intakeOutput);
   updateDashBoardValues();
-
-
-
 }
 
 void Robot::DisabledInit() {}

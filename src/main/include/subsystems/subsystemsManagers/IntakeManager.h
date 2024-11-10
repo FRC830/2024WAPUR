@@ -39,9 +39,4 @@ public:
 
 private:
     IntakeHAL m_intake;
-    bool m_goToGroundPos;
-    bool m_goToStowPos;
-    bool m_goToAmpPos;
-    bool m_goToPseudoStowPos;
-    bool m_goToOutakePos;
 };

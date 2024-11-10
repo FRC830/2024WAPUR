@@ -23,25 +23,6 @@ class LauncherHAL
         void ResetProfiledMoveState();
 
     private:
-        rev::CANSparkMax m_PvtMotor{LAUNCHER_PVT_MTR_ID, rev::CANSparkMax::MotorType::kBrushless};
-        rev::CANSparkMax m_IndMotor{LAUNCHER_IND_MTR_ID, rev::CANSparkMax::MotorType::kBrushless};
-        ctre::phoenix6::hardware::TalonFX m_FlywheelTop{FLYWHEEL_TOP_ID};
-        ctre::phoenix6::hardware::TalonFX m_FlywheelBottom{FLYWHEEL_BOTTOM_ID};
-        
-        rev::SparkPIDController m_PvtPID = m_PvtMotor.GetPIDController();
-        rev::SparkAbsoluteEncoder m_PvtAbsEncoder= m_PvtMotor.GetAbsoluteEncoder(rev::SparkAbsoluteEncoder::Type::kDutyCycle);
-
-        ctre::phoenix6::controls::Follower m_FlywheelTopFollower = ctre::phoenix6::controls::Follower(FLYWHEEL_TOP_ID, true);
-
-        frc::Timer m_Timer;
-
-        frc::TrapezoidProfile<units::degrees> m_Profile{
-
-                frc::TrapezoidProfile<units::degrees>::Constraints{150_deg_per_s, 175_deg_per_s_sq}  
-                
-            };
-        
-        double m_ProfileStartPos; 
         double m_indexerSpeed;
         int m_profileState = 0;
         double m_currentAngle;

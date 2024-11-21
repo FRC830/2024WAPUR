@@ -9,10 +9,7 @@ class ControllerInterface
         ~ControllerInterface() = default;
         void UpdateRobotControlData(RobotControlData &controlData);
     private:
-        void UpdateIntakeInput(RobotControlData &controlData);
-        void UpdateLauncherInput(RobotControlData &controlData);
         void UpdateSwerveInput(RobotControlData &controlData);
-        void UpdateVisionInput(RobotControlData &controlData);
         
         frc::XboxController m_pilot{0};
         frc::XboxController m_copilot{1};

@@ -7,7 +7,31 @@ struct SwerveInput{
     bool slowMode;
 };
 
+struct ClawInput
+{
+    // TODO - define members
+};
+
+struct ClawOutput
+{
+    // TODO - define members
+};
+
+struct ElevatorInput
+{
+    // TODO - define members
+};
+
+struct ElevatorOutput
+{
+    // TODO - define members
+};
+
 struct RobotControlData {
     SwerveInput swerveInput;
+    ClawInput clawInput;
+    ClawOutput clawOutput;
+    ElevatorInput elevatorInput;
+    ElevatorOutput elevatorOutput;
 };
 

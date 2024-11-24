@@ -1,4 +1,4 @@
-/*
+#pragma once
 #include <iostream>
 #include <ctime>
 #include <networktables/DoubleTopic.h>
@@ -11,34 +11,22 @@ class PlaceBoxs{
         double distanceFromThePlatform;
         double raiseSpeed;
         double shelfWidth;
-        /*double distanceFromPlatform(double position){
-        }
         double heightFromPlatform;
-        double heightFromPlatform(level, levelHeight, baseHeight){
-        }
-        int raiseSpeed(originalRaiseSpeed, weight, changeInAcceleration){
-        }
-        void putBox(double distance, double heightDistance, double speed, double boxSides, double shelfPosition, box Position){
-            liftBox(heightDistance, speed);
-            moveToShelf(shelfPosition, position, distanceFromThePlatform, boxSides);
-            slideBoxIntoShelf(shelfWidth, boxPosition, shelfPosition, boxSides);
-        }
+        double distanceFromPlatform(double position);
+        double heightFromPlatform(int level, double levelHeight, double baseHeight);
+        int raiseSpeed(double noriginalRaiseSpeed, double weight, double changeInAcceleration);
+        void putBox(double distance, double heightDistance, double speed, double boxSides, double shelfPosition, double boxPosition);
         
     private:
         double levelHeight;
-           /*height between levels
-
         double orignalRaiseSpeed;
         double robotHeight;
         double changeInAcceleration;
-        /*relationship between change in mass and change in acceleration
         double baseHeight;
-        /*original height of the box
-       double weight;
-        /*original weight of the box
+        double weight;
         double shelfPosition;
-        /*position of edge where the box slides towards
         double boxSide;
         double shelfWidth;
+        double level;
 };
-*/
+

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "SubSystemConfig.h"
 #include <frc/Timer.h>
 #include <frc/trajectory/TrapezoidProfile.h>
 #include <units/length.h>

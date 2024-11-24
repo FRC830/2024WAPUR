@@ -2,12 +2,12 @@
 
 class ElevatorHAL 
 {
-    public:
+public:
 
     double GetElevatorHeight();
     void MoveElevatorBy(double distance, double speed);
     void MoveElevatorTo(double height);
-    private:
+private:
     double elevatorHeight;
 
 };

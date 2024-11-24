@@ -27,3 +27,8 @@ void Elevator::SetHeight(double desired_height)
     // TODO - set motors to go to height
     std::cout << "elevator setting height to " << desired_height << std::endl;
 }
+void MoveHeightBy(double height_increase) 
+{
+    // TODO - make motors increase by a set amount
+    std::cout << "elevator increasing height by" << height_increase << std::endl;
+}

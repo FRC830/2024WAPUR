@@ -15,7 +15,7 @@ private:
 
     // Raw set height used by profiled move to set the height
     void SetHeight(double desired_height);
-
+    void MoveHeightBy(double desired_height);
     // TODO - define motors
 
 };

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "SubSystemConfig.h"
-
 class ElevatorHAL 
 {
     public:

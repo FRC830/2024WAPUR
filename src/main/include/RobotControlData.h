@@ -1,20 +1,37 @@
 #pragma once
-#include "subsystems/subsystemsManagers/IntakeManager.h"
-#include "subsystems/subsystemsManagers/LauncherManager.h"
 
 struct SwerveInput{
     double xTranslation;
     double yTranslation;
     double rotation;
     bool slowMode;
-    bool resetGyroZeroHeading;
+};
+
+struct ClawInput
+{
+    // TODO - define members
+};
+
+struct ClawOutput
+{
+    // TODO - define members
+};
+
+struct ElevatorInput
+{
+    // TODO - define members
+};
+
+struct ElevatorOutput
+{
+    // TODO - define members
 };
 
 struct RobotControlData {
-    IntakeInput intakeInput;
-    IntakeOutput intakeOutput;
-    LauncherInput launcherInput;
-    LauncherOutput launcherOutput;
     SwerveInput swerveInput;
+    ClawInput clawInput;
+    ClawOutput clawOutput;
+    ElevatorInput elevatorInput;
+    ElevatorOutput elevatorOutput;
 };
 

@@ -10,7 +10,7 @@
 #include <frc/trajectory/TrapezoidProfile.h>
 
 class ClawHAL
-{
+{ 
 private:
  double m_intakeSpeed = 0.0;
 
@@ -21,7 +21,7 @@ private:
         double  GetAngle(); 
         void  ProfiledMoveToAngle(double angle);
         double  GetSpeed();
-        void  SetPosition();
+        double  SetPosition();
         void  PublishDebugInfo();
         void  ResetProfiledMoveState(); 
 };

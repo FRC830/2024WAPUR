@@ -7,9 +7,10 @@ public:
     ~Elevator() = default;
 
     // Functions that make using the elevator simple
-    void ProfiledMoveToHeight(double desired_height);
+    void ProfiledMoveToHeight(int shelf);
 
     double GetHeight();
+    int m_profileState = 0;
 
 private:
 

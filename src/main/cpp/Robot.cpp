@@ -49,7 +49,7 @@ void Robot::AutonomousInit() {
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
   } else {
-    // Default Auto goes here
+    // TODO: Execute methods to initialize our autonomous 
   }
 }
 
@@ -62,12 +62,11 @@ void Robot::AutonomousPeriodic() {
 }
 
 void Robot::TeleopInit() {
-
-  
+  // TODO: Execute methods to initialize the robot for driver control
 }
 
 void Robot::TeleopPeriodic() {
-
+  // TODO: Execute methods that are needed every 20ms while the robot is being driven
 }
 
 void Robot::DisabledInit() {}

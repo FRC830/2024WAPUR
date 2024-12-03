@@ -1,20 +1,12 @@
 #include "HAL/Claw.h"
 #include <iostream>
-#include <frc/Timer.h>
-#include <frc/trajectory/TrapezoidProfile.h>
-#include <units/length.h>
-#include <units/velocity.h>
-#include <units/angle.h>
-#include <units/acceleration.h>
-#include <frc/Timer.h>
-#include <frc/trajectory/TrapezoidProfile.h>
-#include <subsystems/ClawHAL.h>
 
 // Claw movements
 
-ClawHAL::ClawHAL()
-{ 
-    // Put together this component
+Claw::Claw()
+{
+    // TODO - configure mechanism
+    std::cout << "configured claw mechanism" << std::endl;
 }
 
 
@@ -59,14 +51,6 @@ void ResetProfiledMoveState()
     //m_profileState = 0;
 }
 
-
-
-Claw::Claw()
-{
-    // TODO - configure mechanism
-    std::cout << "configured claw mechanism" << std::endl;
-}
-
 void Claw::Clasp()
 {
 if (_signal != 1)
@@ -77,19 +61,19 @@ if (_signal != 1)
 
     // TODO - implement mechanism to clasp
 }
-/*int ClawHAL::LauncherHAL()
+/*int Claw::LauncherHAL()
 { 
     // Put together the compontent
 }
 */
 
 
-void SetClawHALSpeed(double speed)
+void SetClawSpeed(double speed)
 { 
     // Handle any usar input to take this action compontent
 }
 
-double GetClawHALSpeed()
+double GetClawSpeed()
 { 
     return 0;
 }
@@ -97,11 +81,6 @@ double GetClawHALSpeed()
 void RunIntake(double speed)
 { 
     // Set motors to connect to certain speed
-}
-
-void ResetProfiledMoveState()
-{ 
-    //m_profileState = 0;
 }
 
 void Claw::Unclasp()

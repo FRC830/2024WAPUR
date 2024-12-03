@@ -5,6 +5,8 @@
 
 Elevator::Elevator()
 {
+    m_profileState = 0;
+    m_Timer = frc::Timer();
     // TODO - configure motors
     std::cout << "configured elevator motors" << std::endl;
 }
@@ -13,29 +15,7 @@ void Elevator::ProfiledMoveToHeight(int shelfNumber)
 {
     // TODO - implement profiled move semantics
     std::cout << "elevator performing profiled move to " << shelfNumber << std::endl;
-    ProfiledMoveToHeight(shelfNumber);
-}
-
-double Elevator::GetHeight()
-{
-    // TODO - read motors for height
-    std::cout << "elevator height measured as 0.0 inches" << std::endl;
-    return 0.0f;
-}
-//setHeight switched to ProfiledMoveToHeight
-// void Elevator::SetHeight(double desired_height)
-// {
-//     // TODO - set motors to go to height
-//     std::cout << "elevator setting height to " << desired_height << std::endl;
-// }
-void MoveHeightBy(double height_increase) 
-{
-    // TODO - make motors increase by a set amount
-    std::cout << "elevator increasing height by" << height_increase << std::endl;
-}
-
-void ProfiledMoveToHeight(int shelf)
-{
+    
     switch(m_profileState)
     {
      case 0: 
@@ -61,11 +41,10 @@ void ProfiledMoveToHeight(int shelf)
 
             // SetAngle(setPoint.position.to<double>());
 
-            if (m_Profile.IsFinished(m_Timer.Get())) {
-
-                m_profileState++;
-
-            }
+            //if (m_Profile.IsFinished(m_Timer.Get())) {
+            //
+            //    m_profileState++;
+            // }
 
 
 
@@ -86,4 +65,22 @@ void ProfiledMoveToHeight(int shelf)
         default:
             break; 
     }
+}
+
+double Elevator::GetHeight()
+{
+    // TODO - read motors for height
+    std::cout << "elevator height measured as 0.0 inches" << std::endl;
+    return 0.0f;
+}
+//setHeight switched to ProfiledMoveToHeight
+// void Elevator::SetHeight(double desired_height)
+// {
+//     // TODO - set motors to go to height
+//     std::cout << "elevator setting height to " << desired_height << std::endl;
+// }
+void MoveHeightBy(double height_increase) 
+{
+    // TODO - make motors increase by a set amount
+    std::cout << "elevator increasing height by" << height_increase << std::endl;
 }

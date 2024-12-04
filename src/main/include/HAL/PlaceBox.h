@@ -1,17 +1,20 @@
 #pragma once
+
 #include <iostream>
-#include <ctime>
-#include <networktables/DoubleTopic.h>
-#include <networktables/IntegerTopic.h>
-#include <networktables/StringTopic.h>
-class PlaceBoxs{
+
+class PlaceBox {
     public:
+        PlaceBox();
+        ~PlaceBox() = default;
         double position;
         double boxPosition;
         double distanceFromThePlatform;
-        double shelfWidth;
-        double distanceFromPlatform(double position);
+        double distanceFromPlatform(double position, double shelfPosition);
         void putBox(double distance, int goallevel, double boxSides, double shelfPosition, double boxPosition);
+        int getLevel();
+        void liftBox(int level);
+        void moveToShelf(double shelfPosition, double position, double distanceFromPlatform, double boxSides);
+        void slideBoxIntoShelf(double shelfWidth, double boxPosition, double shelfPosition, double boxSides);
         
     private:
         double levelHeight;

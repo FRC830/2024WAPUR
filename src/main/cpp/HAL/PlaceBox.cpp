@@ -1,52 +1,45 @@
-#include "HAL/PlaceBoxHAL.h"
+#include "HAL/PlaceBox.h"
 #include <iostream>
-#include <ctime>
-#include <networktables/DoubleTopic.h>
-#include <networktables/IntegerTopic.h>
-#include <networktables/StringTopic.h>
-double levelHeight;
-int level;
-double robotHeight;
-double baseHeight;
-double shelfPosition;
-double boxSide;
-double shelfWidth;
-double position=0;
-double boxPosition=0;
-double distanceFromThePlatform=0;
-double shelfWidth=0;
-double distanceFromPlatform(double position, double shelfPosition)
+
+
+PlaceBox::PlaceBox() {
+    double levelHeight=0;
+    int level=0;
+    double robotHeight=0;
+    double baseHeight=0;
+    double shelfPosition=0;
+    double boxSide=0;
+    double shelfWidth=0;
+    double position=0;
+    double boxPosition=0;
+    double distanceFromThePlatform=0;
+}
+
+double PlaceBox::distanceFromPlatform(double position, double shelfPosition)
 {
     double distance = shelfPosition-position;
     return distance;
 }
-double distanceFromThePlatform = distanceFromPlatform(position, shelfPosition);
 
-int getLevel(){
+int PlaceBox::getLevel(){
     return int(robotHeight/levelHeight)-1;
 }
-void liftBox(int level){
+void PlaceBox::liftBox(int level){
     while(getLevel()<level){
         //lift
     }
 }
-void moveToShelf(double shelfPosition, double position, double distanceFromPlatform, double boxSides){
+void PlaceBox::moveToShelf(double shelfPosition, double position, double distanceFromPlatform, double boxSides){
     while(shelfPosition-position > 0.5){
     }
 }
-void slideBoxIntoShelf(double shelfWidth, double boxPosition, double shelfPosition, double boxSides){
+void PlaceBox::slideBoxIntoShelf(double shelfWidth, double boxPosition, double shelfPosition, double boxSides){
     while(shelfPosition+shelfWidth > boxPosition+boxSides+1){
     }
 }
-void putBox(double distance, int goalLevel, double boxSides, double shelfPosition, double boxPosition){
+void PlaceBox::putBox(double distance, int goalLevel, double boxSides, double shelfPosition, double boxPosition){
     liftBox(goalLevel);
     moveToShelf(shelfPosition, position, distanceFromThePlatform, boxSides);
     slideBoxIntoShelf(shelfWidth, boxPosition, shelfPosition, boxSides);
 
-double levelHeight;
-double robotHeight;
-double baseHeight;
-double shelfPosition;
-double boxSide;
-double shelfWidth;
 }

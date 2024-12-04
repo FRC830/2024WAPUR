@@ -1,6 +1,10 @@
 #pragma once
 
 #include <frc/Timer.h>
+#include <rev/CANSparkMax.h>
+#include <frc/XboxController.h>
+
+    rev::CANSparkMax m_elevatorMotor{9, rev::CANSparkMax::MotorType::kBrushless};
 
 class Elevator
 {

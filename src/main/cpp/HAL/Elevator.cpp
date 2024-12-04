@@ -69,7 +69,7 @@ void Elevator::ProfiledMoveToHeight(int shelfNumber)
 
 double Elevator::GetHeight()
 {
-    // TODO - read motors for height
+    // get data from motors
     std::cout << "elevator height measured as 0.0 inches" << std::endl;
     return 0.0f;
 }

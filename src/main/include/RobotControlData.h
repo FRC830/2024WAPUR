@@ -19,7 +19,8 @@ struct ClawOutput
 
 struct ElevatorInput
 {
-    // TODO - define members
+    bool up;
+    bool down;
 };
 
 struct ElevatorOutput

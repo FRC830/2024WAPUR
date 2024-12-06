@@ -15,56 +15,8 @@ void Elevator::ProfiledMoveToHeight(int shelfNumber)
 {
     // TODO - implement profiled move semantics
     std::cout << "elevator performing profiled move to " << shelfNumber << std::endl;
-    
-    switch(m_profileState)
-    {
-     case 0: 
-        {
-         //   m_ProfileStartPos = GetAngle();
-
-            m_Timer.Stop();
-            m_Timer.Reset();
-            m_Timer.Start();
-
-            m_profileState++;
-
-            break;
-        }
-            
-
-        case 1:
-        {
-            // auto setPoint = m_Profile.Calculate(m_Timer.Get(),    
-            // frc::TrapezoidProfile<units::degrees>::State{units::degree_t{m_ProfileStartPos}, 0_deg_per_s},  
-            // frc::TrapezoidProfile<units::degrees>::State{units::degree_t{angle}, 0_deg_per_s}
-            // );
-
-            // SetAngle(setPoint.position.to<double>());
-
-            //if (m_Profile.IsFinished(m_Timer.Get())) {
-            //
-            //    m_profileState++;
-            // }
-
-
-
-            break;
-        }
-
-        case 2: 
-        {
-
-            m_Timer.Stop();
-
-            m_profileState++;
-
-            break;
-        }
-
-        
-        default:
-            break; 
-    }
+    // move elevator to (shelfNumber*15) inches
+    shelfCurrent = shelfNumber;
 }
 
 double Elevator::GetHeight()
@@ -79,8 +31,17 @@ double Elevator::GetHeight()
 //     // TODO - set motors to go to height
 //     std::cout << "elevator setting height to " << desired_height << std::endl;
 // }
-void MoveHeightBy(double height_increase) 
+void Elevator::ShiftHeight(bool direction) 
 {
-    // TODO - make motors increase by a set amount
-    std::cout << "elevator increasing height by" << height_increase << std::endl;
+    std::string height_increase;
+    // TODO - make motors go up or down 
+    if (direction==true){
+        height_increase = "up";
+        Elevator::ProfiledMoveToHeight(shelfCurrent+1);
+    }else{
+        height_increase = "down";
+        Elevator::ProfiledMoveToHeight(shelfCurrent-1);
+    }
+    std::cout << "elevator moving" << height_increase << std::endl;
+
 }

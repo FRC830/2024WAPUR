@@ -5,7 +5,11 @@
 
 
 void HandleInput(RobotControlData& control_data) {
-    //todo
+    if (control_data.elevatorInput.up) {
+        m_elevator.ShiftHeight(true);
+    }else if(control_data.elevatorInput.down) {
+        m_elevator.ShiftHeight(false);
+    }
 };
 void Reset(){
     m_elevator.ProfiledMoveToHeight(0);

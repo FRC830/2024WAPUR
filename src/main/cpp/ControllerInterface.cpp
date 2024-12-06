@@ -3,6 +3,13 @@
 void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
 {
     UpdateSwerveInput(controlData);
+    UpdateElevatorInput(controlData);
+};
+
+void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
+{
+    controlData.elevatorInput.up = m_copilot.GetRightBumper();
+    controlData.elevatorInput.down = m_copilot.GetLeftBumper();
 };
 
 void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)

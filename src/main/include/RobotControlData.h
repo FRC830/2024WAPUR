@@ -27,11 +27,16 @@ struct ElevatorOutput
     // TODO - define members
 };
 
+struct TestInput {
+    double speed;
+};
+
 struct RobotControlData {
     SwerveInput swerveInput;
     ClawInput clawInput;
     ClawOutput clawOutput;
     ElevatorInput elevatorInput;
     ElevatorOutput elevatorOutput;
+    TestInput testInput;
 };
 

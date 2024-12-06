@@ -11,6 +11,9 @@
 #include <frc/XboxController.h>
 #include <memory>
 #include "RobotControlData.h"
+#include "ControllerInterface.h"
+#include "InputManager/TestManager.h"
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
@@ -25,6 +28,9 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
   void SimulationInit() override;
   void SimulationPeriodic() override;
+  RobotControlData _robot_control_data;
+  ControllerInterface controllerInterface;
+  TestManager testManager;
 
  private:
 
@@ -32,6 +38,4 @@ class Robot : public frc::TimedRobot {
   const std::string kAutoNameDefault = "Default";
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
-
-  RobotControlData _robot_control_data;
 };

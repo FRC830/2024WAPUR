@@ -12,7 +12,7 @@ public:
     ~Elevator() = default;
 
     // Functions that make using the elevator simple
-    void ProfiledMoveToHeight(bool direction);
+    void ProfiledMoveToHeight(int direction);
     void HandleInput(RobotControlData& input);
 
     double GetHeight();

@@ -32,11 +32,11 @@ double Elevator::GetHeight()
 //     // TODO - set motors to go to height
 //     std::cout << "elevator setting height to " << desired_height << std::endl;
 // }
-void Elevator::ProfiledMoveToHeight(bool direction) 
+void Elevator::ProfiledMoveToHeight(int direction) 
 {
-    if(direction) {
+    if(direction==1) {
         m_elevatorMotor.Set(0.5);
-    } else if (direction) {
+    } else if (direction==-1) {
         m_elevatorMotor.Set(-0.5);
     } else {
         m_elevatorMotor.Set(0);

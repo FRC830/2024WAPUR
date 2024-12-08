@@ -15,5 +15,5 @@ public:
 
 private:
     double speedMultiplier;
-    rev::CANSparkMax motor{0, rev::CANSparkMax::MotorType::kBrushless};
+    rev::CANSparkMax motor{4, rev::CANSparkMax::MotorType::kBrushless};
 };

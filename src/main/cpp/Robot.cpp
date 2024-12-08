@@ -68,6 +68,8 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   controllerInterface.UpdateRobotControlData(_robot_control_data);
+  testManager.HandleInput(_robot_control_data);
+
 }
 
 void Robot::DisabledInit() {}

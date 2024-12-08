@@ -3,9 +3,7 @@
 #include <frc/Timer.h>
 #include <rev/CANSparkMax.h>
 #include <frc/XboxController.h>
-#include "RobotControlData.h"
-
-    
+#include "RobotControlData.h    
 
 class Elevator
 {

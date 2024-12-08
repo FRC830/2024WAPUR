@@ -3,6 +3,7 @@
 #include "HAL/Claw.h"
 #include "RobotControlData.h"
 
+
 class ClawManager
 {
 public:
@@ -13,5 +14,5 @@ public:
     void Reset();
 
 private:
-    Claw _claw;
+    Claw m_claw;    
 };

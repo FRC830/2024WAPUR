@@ -9,11 +9,17 @@ struct SwerveInput{
 
 struct ClawInput
 {
+
     // TODO - define members
+    bool open;
+    bool closed;
+
 };
 
 struct ClawOutput
 {
+
+
     // TODO - define members
 };
 

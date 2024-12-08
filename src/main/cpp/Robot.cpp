@@ -70,6 +70,7 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {
   controllerInterface.UpdateRobotControlData(_robot_control_data);
   Elevator.HandleInput(_robot_control_data);
+  clawManager.HandleInput(_robot_control_data);
 }
 
 void Robot::DisabledInit() {}

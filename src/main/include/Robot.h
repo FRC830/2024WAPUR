@@ -10,6 +10,8 @@
 #include <array>
 #include <frc/XboxController.h>
 #include <memory>
+#include "ControllerInterface.h"
+#include "InputManager/ClawManager.h"
 #include "RobotControlData.h"
 class Robot : public frc::TimedRobot {
  public:
@@ -25,6 +27,8 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
   void SimulationInit() override;
   void SimulationPeriodic() override;
+  ControllerInterface controllerInterface;
+  ClawManager clawManager;
 
  private:
 

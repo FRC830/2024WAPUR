@@ -4,7 +4,14 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
 {
     UpdateSwerveInput(controlData);
     UpdateElevatorInput(controlData);
+    UpdateClawInput(controlData);
 };
+
+void ControllerInterface::UpdateClawInput(RobotControlData &controlData){
+    
+    controlData.clawInput.closed = m_pilot.GetLeftTriggerAxis() > 0.05;
+    controlData.clawInput.open = m_pilot.GetRightTriggerAxis() > 0.05;
+}
 
 void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
 {

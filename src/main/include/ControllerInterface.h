@@ -14,6 +14,8 @@ class ControllerInterface
 
     private:
         void UpdateSwerveInput(RobotControlData &controlData);
+        void UpdateClawInput(RobotControlData &controlData);
+        void UpdateElevatorInput(RobotControlData &controlData);
         
  
         double m_slowmodefactor = 0.25;

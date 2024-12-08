@@ -17,7 +17,7 @@ class LauncherHAL
         ~LauncherHAL() = default;
         void SetFlywheelSpeed(double speed);
         void SetIndexerSpeed(double speed);
-        void ProfiledMoveToAngle(double angle);
+        void ProfiledMoveToAngle(double y);
         double GetAngle(); 
         double GetFlywheelSpeed();
         void ResetProfiledMoveState();

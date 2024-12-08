@@ -3,6 +3,8 @@
 #include "HAL/Elevator.h"
 #include "RobotControlData.h"
 
+Elevator m_elevator = Elevator();
+
 class ElevatorManager
 {
 public:

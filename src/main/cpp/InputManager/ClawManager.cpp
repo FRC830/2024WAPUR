@@ -8,6 +8,10 @@ void ClawManager::HandleInput(RobotControlData& control_data) {
     } else if(control_data.clawInput.closed){
         m_claw.Clasp();
     }
+    else
+    {
+        m_claw.Stop();
+    }
     
 }
 void ClawManager::Reset(){

@@ -10,6 +10,7 @@ public:
 
     void Clasp();
     void Unclasp();
+    void Stop();
 
 private:
     // TODO - get rid... only used for printing

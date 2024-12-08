@@ -65,6 +65,10 @@ void Claw::Clasp()
     // TODO - implement mechanism to clasp
     
 }
+void Claw::Stop()
+{
+    motor1.Set(0);
+}
 /*int Claw::LauncherHAL()
 { 
     // Put together the compontent

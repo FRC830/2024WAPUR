@@ -9,22 +9,16 @@ struct SwerveInput{
 
 struct ClawInput
 {
-        void  ManualMovePivot(double speed);
-        double  GetAngle(); 
-        void  ProfiledMoveToAngle(double angle);
-        double  GetSpeed();
-        double  SetPosition();
-        void  PublishDebugInfo();
-        void  ResetProfiledMoveState();
 
     // TODO - define members
+    bool open;
+    bool closed;
+
 };
 
 struct ClawOutput
 {
-        double  GetAngle();
-        double  GetSpeed();
-        double  SetPosition();
+
 
     // TODO - define members
 };

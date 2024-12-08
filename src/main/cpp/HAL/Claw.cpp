@@ -6,6 +6,8 @@
 Claw::Claw()
 {
     // TODO - configure mechanism
+    motor1.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
+
     std::cout << "configured claw mechanism" << std::endl;
 }
 
@@ -53,13 +55,15 @@ void ResetProfiledMoveState()
 
 void Claw::Clasp()
 {
-if (_signal != 1)
-{
-    std::cout << "claw is clasping" << std::endl;
-    _signal = 1;
-}
+// if (_signal != 1)
+// {
 
+//     _signal = 1;
+// }
+    std::cout << "claw is clasping" << std::endl;
+    motor1.Set(0.1);
     // TODO - implement mechanism to clasp
+    
 }
 /*int Claw::LauncherHAL()
 { 
@@ -74,7 +78,7 @@ void SetClawSpeed(double speed)
 }
 
 double GetClawSpeed()
-{ 
+{
     return 0;
 }
 
@@ -85,11 +89,12 @@ void RunIntake(double speed)
 
 void Claw::Unclasp()
 {
-if (_signal != 2)
-{
+// if (_signal != 2)
+// {
+//     std::cout << "claw is unclasping" << std::endl;
+//     _signal = 2;
+// }
     std::cout << "claw is unclasping" << std::endl;
-    _signal = 2;
-}
-    
+    motor1.Set(-0.1);
     // TODO - implement mechanism to clasp
 }

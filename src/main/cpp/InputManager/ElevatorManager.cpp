@@ -6,9 +6,9 @@
 
 void HandleInput(RobotControlData& control_data) {
     if (control_data.elevatorInput.up) {
-        m_elevator.ShiftHeight(true);
+        m_elevator.ProfiledMoveToHeight(true);
     }else if(control_data.elevatorInput.down) {
-        m_elevator.ShiftHeight(false);
+        m_elevator.ProfiledMoveToHeight(false);
     }
 };
 void Reset(){

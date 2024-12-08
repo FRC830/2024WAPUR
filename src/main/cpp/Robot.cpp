@@ -5,6 +5,7 @@
 #include "Robot.h"
 #include <fmt/core.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include "HAL\Elevator.h"
 
 void Robot::RobotInit() {
 
@@ -68,8 +69,8 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   controllerInterface.UpdateRobotControlData(_robot_control_data);
+  elevatorManager.HandleInput(_robot_control_data);
   clawManager.HandleInput(_robot_control_data);
-
 }
 
 void Robot::DisabledInit() {}

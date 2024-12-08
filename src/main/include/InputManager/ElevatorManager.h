@@ -3,7 +3,6 @@
 #include "HAL/Elevator.h"
 #include "RobotControlData.h"
 
-Elevator m_elevator = Elevator();
 
 class ElevatorManager
 {
@@ -15,5 +14,5 @@ public:
     void Reset();
 
 private:
-    Elevator _elevator;
+    Elevator m_elevator;
 };

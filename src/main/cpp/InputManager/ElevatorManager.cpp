@@ -1,16 +1,21 @@
-#include "HAL/Elevator.h"
 #include "InputManager/ElevatorManager.h"
 #include <iostream>
 #include <frc/Timer.h>
 
+ElevatorManager::ElevatorManager()
+{
 
-void HandleInput(RobotControlData& control_data) {
+}
+
+void ElevatorManager::HandleInput(RobotControlData& control_data) {
     if (control_data.elevatorInput.up) {
-        m_elevator.ShiftHeight(true);
-    }else if(control_data.elevatorInput.down) {
-        m_elevator.ShiftHeight(false);
+        m_elevator.ProfiledMoveToHeight(1);
+    } else if(control_data.elevatorInput.down) {
+        m_elevator.ProfiledMoveToHeight(-1);
+    }  else {
+        m_elevator.ProfiledMoveToHeight(0);
     }
 };
-void Reset(){
+void ElevatorManager::Reset(){
     m_elevator.ProfiledMoveToHeight(0);
 };

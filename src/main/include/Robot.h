@@ -12,6 +12,7 @@
 #include <memory>
 #include "ControllerInterface.h"
 #include "InputManager/ClawManager.h"
+#include "InputManager/ElevatorManager.h"
 #include "RobotControlData.h"
 class Robot : public frc::TimedRobot {
  public:
@@ -29,9 +30,9 @@ class Robot : public frc::TimedRobot {
   void SimulationPeriodic() override;
   ControllerInterface controllerInterface;
   ClawManager clawManager;
+  ElevatorManager elevatorManager;
 
  private:
-
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Default";
   const std::string kAutoNameCustom = "My Auto";

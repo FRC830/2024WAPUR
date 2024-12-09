@@ -3,7 +3,7 @@
 #include <frc/Timer.h>
 #include <rev/CANSparkMax.h>
 #include <frc/XboxController.h>
-#include "RobotControlData.h    
+#include "RobotControlData.h"    
 
 class Elevator
 {
@@ -22,7 +22,7 @@ public:
 private:
     // Raw set height used by profiled move to set the height
     void SetHeight(double desired_height);
-    rev::CANSparkMax m_elevatorMotor{4, rev::CANSparkMax::MotorType::kBrushless};
+    rev::CANSparkMax m_elevatorMotor{5, rev::CANSparkMax::MotorType::kBrushless};
     frc::Timer m_Timer;
     
     bool m_ElevatorFlag;

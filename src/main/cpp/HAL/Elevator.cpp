@@ -35,9 +35,9 @@ double Elevator::GetHeight()
 void Elevator::ProfiledMoveToHeight(int direction) 
 {
     if(direction==1) {
-        m_elevatorMotor.Set(0.5);
+        m_elevatorMotor.Set(0.05);
     } else if (direction==-1) {
-        m_elevatorMotor.Set(-0.5);
+        m_elevatorMotor.Set(-0.05);
     } else {
         m_elevatorMotor.Set(0);
     }

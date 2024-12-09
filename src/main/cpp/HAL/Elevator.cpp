@@ -26,7 +26,9 @@ void Elevator::ProfiledMoveToHeight(bool direction)
     int shelfNumber = shelfCurrent + 1;
     // TODO - make motors go up or down 
     std::cout << "elevator performing profiled move to " << shelfNumber << std::endl;
-    if (direction)
+    if (shelfCurrent < 3)
+    {
+        if (direction)
     {
         m_elevatorMotor.Set(0.5);
         ++shelfCurrent;
@@ -36,5 +38,7 @@ void Elevator::ProfiledMoveToHeight(bool direction)
     }
     std::cout << "performed profiled move to " << shelfNumber << std::endl;
     std::cout << "elevator moving" << height_increase << std::endl;
+    }
+    
 
 }

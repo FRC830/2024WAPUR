@@ -7,7 +7,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 void Robot::RobotInit() {
-
+  SwerveInit();
 }
 
 /**
@@ -68,8 +68,9 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
   controllerInterface.UpdateRobotControlData(_robot_control_data);
+  _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
   elevatorManager.HandleInput(_robot_control_data);
-  clawManager.HandleInput(_robot_control_data);
+  clawManager.HandleInput(_robot_control_data);  
 }
 
 void Robot::DisabledInit() {}

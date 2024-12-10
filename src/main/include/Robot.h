@@ -14,6 +14,13 @@
 #include "InputManager/ClawManager.h"
 #include "InputManager/ElevatorManager.h"
 #include "RobotControlData.h"
+#include "AnalogAbsoluteEncoder.h"
+#include "NeoTurnMotor.h"
+#include "NeoDriveMotor.h"
+#include "WPISwerveModule.h"
+#include "WPISwerveDrive.h"
+#include "NavXGyro.h"
+
 class Robot : public frc::TimedRobot {
  public:
   void RobotInit() override;
@@ -28,15 +35,26 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
   void SimulationInit() override;
   void SimulationPeriodic() override;
-  ControllerInterface controllerInterface;
-  ClawManager clawManager;
-  ElevatorManager elevatorManager;
+  void SwerveInit();
 
  private:
+  static const int NUM_MODULES = 4;
+
   frc::SendableChooser<std::string> m_chooser;
   const std::string kAutoNameDefault = "Default";
   const std::string kAutoNameCustom = "My Auto";
   std::string m_autoSelected;
 
   RobotControlData _robot_control_data;
+  ControllerInterface controllerInterface;
+  ClawManager clawManager;
+  ElevatorManager elevatorManager;
+
+  std::array<AnalogAbsoluteEncoder, NUM_MODULES> _abs_encoders;
+  std::array<NeoTurnMotor, NUM_MODULES> _turn_motors;
+  std::array<NeoDriveMotor, NUM_MODULES> _drive_motors;
+  std::array<WPISwerveModule, NUM_MODULES> _modules;
+  WPISwerveDrive _swerve;
+
+  NavXGyro _gyro;
 };

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <frc/Timer.h>
-#include <rev/CANSparkMax.h>
+#include <ctre/phoenix6/TalonFX.hpp>
 #include <frc/XboxController.h>
 #include "RobotControlData.h"    
 
@@ -21,10 +21,10 @@ public:
 
 private:
     // Raw set height used by profiled move to set the height
-    void SetHeight(double desired_height);
-    rev::CANSparkMax m_elevatorMotor{5, rev::CANSparkMax::MotorType::kBrushless};
+    void MoveElevator(int direction);
+    ctre::phoenix6::hardware::TalonFX m_elevatorMotor{5};
     frc::Timer m_Timer;
-    
+    int speedMult=0;
     bool m_ElevatorFlag;
     int m_ElevatorState;
     bool m_PrevElevatorFlag;

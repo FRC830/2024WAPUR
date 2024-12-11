@@ -11,13 +11,7 @@ Elevator::Elevator()
     std::cout << "configured elevator motors" << std::endl;
 }
 
-void ProfiledMoveToHeight(int shelfNumber)
-{
-    // TODO - implement profiled move semantics
-    std::cout << "elevator performing profiled move to " << shelfNumber << std::endl;
-    // move elevator to (shelfNumber*15) inches
-    //shelfCurrent = shelfNumber;
-}
+
 
 double Elevator::GetHeight()
 {
@@ -34,6 +28,20 @@ double Elevator::GetHeight()
 // }
 void Elevator::ProfiledMoveToHeight(int direction) 
 {
+    m_Timer.Start();
+    while (m_Timer.Get()<=3_s) {
+        if (m_Timer.Get()<1_s){
+        m_elevatorMotor.Set(m_Timer.Get()/1_s);
+        } else if (m_Timer.Get()>2_s) {
+            --speedMult;
+        }
+        m_elevatorMotor.Set(m_Timer.Get()/1_s);
+    }
+    m_elevatorMotor.Set(0);
+    m_Timer.Stop();
+    m_Timer.Reset();
+    speedMult=0;
+    /*
     if(direction==1) {
         m_elevatorMotor.Set(0.05);
     } else if (direction==-1) {
@@ -41,6 +49,7 @@ void Elevator::ProfiledMoveToHeight(int direction)
     } else {
         m_elevatorMotor.Set(0);
     }
+    */
 
     /*
     std::string height_increase;
@@ -61,6 +70,16 @@ void Elevator::ProfiledMoveToHeight(int direction)
     std::cout << "elevator moving" << height_increase << std::endl;
     }
     */
+}
+void Elevator::MoveElevator(int direction) 
+{
+    if(direction==1) {
+        m_elevatorMotor.Set(0.05);
+    } else if (direction==-1) {
+        m_elevatorMotor.Set(-0.05);
+    } else {
+        m_elevatorMotor.Set(0);
+    }
 }
     
 void ShiftHeight(bool direction) 

@@ -53,13 +53,24 @@ void Robot::AutonomousInit() {
   }
 }
 
+
+
+
 void Robot::AutonomousPeriodic() {
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
   } else {
     // Default Auto goes here
   }
+
+  _swerve.Drive(0.0, 0.0, 0.0);
+  TeleopPeriodic();
 }
+
+    
+
+
+  
 
 void Robot::TeleopInit() {
 

@@ -7,7 +7,7 @@ Claw::Claw()
 {
     // TODO - configure mechanism
     motor1.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
-
+    motor2.SetIdleMode(rev::CANSparkMax::IdleMode::kBrake);
     std::cout << "configured claw mechanism" << std::endl;
 }
 
@@ -61,13 +61,15 @@ void Claw::Clasp()
 //     _signal = 1;
 // }
     std::cout << "claw is clasping" << std::endl;
-    motor1.Set(0.1);
+    motor1.Set(clawSpeed);
+    motor2.Set(-clawSpeed);
     // TODO - implement mechanism to clasp
     
 }
 void Claw::Stop()
 {
     motor1.Set(0);
+    motor2.Set(0);
 }
 /*int Claw::LauncherHAL()
 { 
@@ -99,6 +101,7 @@ void Claw::Unclasp()
 //     _signal = 2;
 // }
     std::cout << "claw is unclasping" << std::endl;
-    motor1.Set(-0.1);
+    motor1.Set(-clawSpeed);
+    motor2.Set(clawSpeed);
     // TODO - implement mechanism to clasp
 }

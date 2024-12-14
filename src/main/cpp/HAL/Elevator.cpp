@@ -28,19 +28,34 @@ double Elevator::GetHeight()
 // }
 void Elevator::ProfiledMoveToHeight(int direction) 
 {
-    m_Timer.Start();
-    while (m_Timer.Get()<=3_s) {
-        if (m_Timer.Get()<1_s){
-        m_elevatorMotor.Set(m_Timer.Get()/1_s);
-        } else if (m_Timer.Get()>2_s) {
-            --speedMult;
-        }
-        m_elevatorMotor.Set(m_Timer.Get()/1_s);
+
+    // initialize i based on direction
+    if (direction==0) {
+        i=0;
+    } else if (direction==-1) {
+        i *= -1;
     }
-    m_elevatorMotor.Set(0);
-    m_Timer.Stop();
-    m_Timer.Reset();
-    speedMult=0;
+    // makes sure that i <= 35
+    i=std::min  (abs(i),35)*(i/abs(i));
+    // implements i variable through setting  motor speed
+    m_elevatorMotor.Set(((double) i/35)*0.7);
+    // increments i by 1
+    i++; 
+    // m_Timer.Start();
+    // if (m_Timer.Get() < )
+
+    // while (m_Timer.Get()<=3_s) {
+    //     if (m_Timer.Get()<1_s){
+    //     m_elevatorMotor.Set(m_Timer.Get()/1_s);
+    //     } else if (m_Timer.Get()>2_s) {
+    //         --speedMult;
+    //     }
+    //     m_elevatorMotor.Set(m_Timer.Get()/1_s);
+    // }
+    // m_elevatorMotor.Set(0);
+    // m_Timer.Stop();
+    // m_Timer.Reset();
+    // speedMult=0;
     /*
     if(direction==1) {
         m_elevatorMotor.Set(0.05);

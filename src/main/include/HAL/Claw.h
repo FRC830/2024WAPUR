@@ -15,7 +15,7 @@ public:
 private:
     // TODO - get rid... only used for printing
     int _signal = 0;
-    rev::CANSparkMax motor1{4, rev::CANSparkMax::MotorType::kBrushless};
+    rev::CANSparkMax motor1{4, rev::CANSparkMax::MotorType::kBrushless}; //11 for other motor
 
 
     // TODO - define mechanism

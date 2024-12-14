@@ -36,6 +36,7 @@ class Robot : public frc::TimedRobot {
   void SimulationInit() override;
   void SimulationPeriodic() override;
   void SwerveInit();
+  void PrintSwerveInfo();
 
  private:
   static const int NUM_MODULES = 4;

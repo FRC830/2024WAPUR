@@ -19,7 +19,7 @@ void Robot::RobotInit() {
  * LiveWindow and SmartDashboard integrated updating.
  */
 void Robot::RobotPeriodic() {
-
+  PrintSwerveInfo();
 //   vision.Periodic();
 //   auto a = vision.GetPolarCoordForTagX(11);
 //   auto b = vision.GetPolarCoordForTagX(15);
@@ -56,7 +56,7 @@ void Robot::AutonomousInit() {
 void Robot::AutonomousPeriodic() {
 
 
-  _swerve.Drive(0.5, 0.0, 0.0);
+  _swerve.Drive(0.6, 0.0, 0.0);
   
   
   if (m_autoSelected == kAutoNameCustom) {
@@ -72,7 +72,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-  PrintSwerveInfo();
+  
 
   controllerInterface.UpdateRobotControlData(_robot_control_data);
   _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
@@ -82,7 +82,9 @@ void Robot::TeleopPeriodic() {
 
 void Robot::DisabledInit() {}
 
-void Robot::DisabledPeriodic() {}
+void Robot::DisabledPeriodic() {
+  PrintSwerveInfo();
+}
 
 void Robot::TestInit() {
   _swerve.Drive(0.24, 0.0, 0.0);

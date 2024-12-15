@@ -45,7 +45,7 @@ void Robot::AutonomousInit() {
   // m_autoSelected = m_chooser.GetSelected();
   // m_autoSelected = frc::SmartDashboard::GetString("Auto Selector", kAutoNameDefault);
   // fmt::print("Auto selected: {}\n", m_autoSelected);
-
+  
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
   } else {
@@ -54,22 +54,16 @@ void Robot::AutonomousInit() {
 }
 
 void Robot::AutonomousPeriodic() {
-  m_timer.Reset();
-  m_timer.Start();
 
-  while(m_timer.Get() < 10_s)
-  {
-    _swerve.Drive(0.7, 0.0, 0.0);
-  }
+
+  _swerve.Drive(0.24, 0.0, 0.0);
+  
+  
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
   } else {
     // Default Auto goes here
   }
-  
-  _swerve.Drive(0.0, 0.0, 0.0);
-  m_timer.Reset();
-  TeleopPeriodic();
 }
 
 void Robot::TeleopInit() {
@@ -91,6 +85,7 @@ void Robot::DisabledInit() {}
 void Robot::DisabledPeriodic() {}
 
 void Robot::TestInit() {
+  _swerve.Drive(0.24, 0.0, 0.0);
 
 }
 

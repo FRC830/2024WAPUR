@@ -17,5 +17,5 @@ void ElevatorManager::HandleInput(RobotControlData& control_data) {
     }
 };
 void ElevatorManager::Reset(){
-    m_elevator.ProfiledMoveToHeight(0);
+    m_elevator.ProfiledMoveToHeight(0); 
 };

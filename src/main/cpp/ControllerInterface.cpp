@@ -9,14 +9,14 @@ void ControllerInterface::UpdateRobotControlData(RobotControlData &controlData)
 
 void ControllerInterface::UpdateClawInput(RobotControlData &controlData){
     
-    controlData.clawInput.closed = m_pilot.GetLeftTriggerAxis() > 0.05;
-    controlData.clawInput.open = m_pilot.GetRightTriggerAxis() > 0.05;
+    controlData.clawInput.closed = m_copilot.GetLeftTriggerAxis() > 0.05;
+    controlData.clawInput.open = m_copilot.GetRightTriggerAxis() > 0.05;
 }
 
 void ControllerInterface::UpdateElevatorInput(RobotControlData &controlData)
 {
-    controlData.elevatorInput.up = m_copilot.GetRightBumper();
-    controlData.elevatorInput.down = m_copilot.GetLeftBumper();
+    controlData.elevatorInput.up = m_copilot.GetXButton();
+    controlData.elevatorInput.down = m_copilot.GetBButton();
 };
 
 void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)

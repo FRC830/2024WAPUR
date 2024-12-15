@@ -54,11 +54,22 @@ void Robot::AutonomousInit() {
 }
 
 void Robot::AutonomousPeriodic() {
+  m_timer.Reset();
+  m_timer.Start();
+
+  while(m_timer.Get() < 10_s)
+  {
+    _swerve.Drive(0.7, 0.0, 0.0);
+  }
   if (m_autoSelected == kAutoNameCustom) {
     // Custom Auto goes here
   } else {
     // Default Auto goes here
   }
+  
+  _swerve.Drive(0.0, 0.0, 0.0);
+  m_timer.Reset();
+  TeleopPeriodic();
 }
 
 void Robot::TeleopInit() {
@@ -67,21 +78,28 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
-  PrintSwerveInfo();
+ // PrintSwerveInfo();
 
   controllerInterface.UpdateRobotControlData(_robot_control_data);
   _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
   elevatorManager.HandleInput(_robot_control_data);
-  //clawManager.HandleInput(_robot_control_data);  
+  clawManager.HandleInput(_robot_control_data);  
 }
 
 void Robot::DisabledInit() {}
 
 void Robot::DisabledPeriodic() {}
 
-void Robot::TestInit() {}
+void Robot::TestInit() {
 
-void Robot::TestPeriodic() {}
+}
+
+void Robot::TestPeriodic() {
+  controllerInterface.UpdateRobotControlData(_robot_control_data);
+  _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);
+  elevatorManager.HandleInput(_robot_control_data);
+  clawManager.HandleInput(_robot_control_data);  
+}
 
 void Robot::SimulationInit() {}
 

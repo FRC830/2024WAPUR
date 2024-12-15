@@ -39,6 +39,8 @@ class Robot : public frc::TimedRobot {
   void PrintSwerveInfo();
 
  private:
+  frc::Timer m_timer;
+
   static const int NUM_MODULES = 4;
 
   frc::SendableChooser<std::string> m_chooser;

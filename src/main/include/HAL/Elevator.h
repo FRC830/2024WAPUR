@@ -25,6 +25,7 @@ private:
     ctre::phoenix6::hardware::TalonFX m_elevatorMotor{18};
     frc::Timer m_Timer;
     int i;
+    int i_d;
     int speedMult=0;
     bool m_ElevatorFlag;
     int m_ElevatorState;

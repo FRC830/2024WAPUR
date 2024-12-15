@@ -56,7 +56,7 @@ void Robot::AutonomousInit() {
 void Robot::AutonomousPeriodic() {
 
 
-  _swerve.Drive(0.24, 0.0, 0.0);
+  _swerve.Drive(0.6, 0.0, 0.0);
   
   
   if (m_autoSelected == kAutoNameCustom) {

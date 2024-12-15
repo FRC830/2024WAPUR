@@ -23,8 +23,8 @@ void ControllerInterface::UpdateSwerveInput(RobotControlData &controlData)
 {
     controlData.swerveInput.slowMode = m_pilot.GetLeftBumper();
   
-    controlData.swerveInput.xTranslation = -m_pilot.GetLeftX();
-    controlData.swerveInput.yTranslation = -m_pilot.GetLeftY();
+    controlData.swerveInput.xTranslation = -m_pilot.GetLeftY();
+    controlData.swerveInput.yTranslation = -m_pilot.GetLeftX();
     controlData.swerveInput.rotation = -m_pilot.GetRightX();
 
     if (controlData.swerveInput.slowMode)

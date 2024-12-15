@@ -56,7 +56,7 @@ void Robot::AutonomousInit() {
 void Robot::AutonomousPeriodic() {
 
 
-  _swerve.Drive(0.6, 0.0, 0.0);
+  _swerve.Drive(0.5, 0.0, 0.0);
   
   
   if (m_autoSelected == kAutoNameCustom) {
@@ -72,7 +72,7 @@ void Robot::TeleopInit() {
 }
 
 void Robot::TeleopPeriodic() {
- // PrintSwerveInfo();
+  PrintSwerveInfo();
 
   controllerInterface.UpdateRobotControlData(_robot_control_data);
   _swerve.Drive(_robot_control_data.swerveInput.xTranslation, _robot_control_data.swerveInput.yTranslation, _robot_control_data.swerveInput.rotation);

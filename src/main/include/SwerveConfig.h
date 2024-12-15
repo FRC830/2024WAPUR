@@ -147,7 +147,7 @@ const double DRIVE_FF = 0.0;
 
 // --------------------------Gyro-----------------------------
 const bool GYRO_INVERTED = true;
-const frc::Rotation2d GYRO_ZERO_HEADING{units::degree_t{0.0f}};
+const frc::Rotation2d GYRO_ZERO_HEADING{units::degree_t{90.0f}};
 
 // --------------------------Swerve---------------------------
 const double MAX_DRIVE_SPEED_FPS = 5.0;
